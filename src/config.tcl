@@ -45,13 +45,13 @@ set ::env(DECAP_CELL) "\
 # clock
 set ::env(CLOCK_TREE_SYNTH) 1
 # period is in ns, so 20ns == 50mHz
-set ::env(CLOCK_PERIOD) "1000"
+set ::env(CLOCK_PERIOD) "20"
 set ::env(CLOCK_PORT) {clk}
-set ::env(PL_TARGET_DENSITY) 0.35
+# set ::env(PL_TARGET_DENSITY) 0.35
 
 # hold/slack margin
-set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.1
-set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.1
+# set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.8
+# set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.8
 
 # don't use power rings or met5
 set ::env(DESIGN_IS_CORE) 0
