@@ -23,11 +23,20 @@
    localparam pNINE        = 'b11100;
 
 ////////////////////////////////////////
+   wire       w_rst;
+   rst m_rst
+   (
+    .i_clk   ( i_clk ),
+    .i_rst_n ( ~ i_rst ),
+    .o_rst   ( w_rst )
+   );
+
+////////////////////////////////////////
    reg        r_rst        = 'b1;
    reg        r_rst_done   = 'b0;
 
    always @( posedge i_clk )
-     if( i_rst )
+     if( w_rst )
        r_rst              <= 'b1;
      else if( r_rst_done )
        r_rst              <= 'b0;

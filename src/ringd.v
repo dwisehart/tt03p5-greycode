@@ -18,17 +18,27 @@
    );
 
 ////////////////////////////////////////
-   localparam pDEL        = 0.020;
    localparam pNUM        = ( pSTAGES * 2 ) - 1;
+   reg [pNUM-1:0] r_rst   = {pNUM{1'b1}};
+
+   always @( posedge i_clk )
+     if( w_rst )
+       r_rst             <= {pNUM{1'b1}};
+     else
+       r_rst             <= {pNUM{w_rst}};
+
+////////////////////////////////////////
+   localparam pDEL        = 0.020;
    wire [pNUM:0] w_clk;
    assign        o_clk    = w_clk[1];
 
    genvar ii;
    for( ii=0; ii<pNUM; ii=ii+2 ) begin
-      wire w_init    = ( ii % 4 ) >> 1;
-      localparam xx  = ii+3 > pNUM ? 1 : ii+3;
-      localparam yy  = ii+2 > pNUM ? 0 : ii+2;
-      assign #pDEL w_clk[ ii+1 :ii]  = f_inv( w_rst, w_init, w_clk[ xx :yy], w_clk[ ii+1 :ii] );
+      wire w_init         = ( ii % 4 ) >> 1;
+      localparam xx       = ii+3 > pNUM ? 1 : ii+3;
+      localparam yy       = ii+2 > pNUM ? 0 : ii+2;
+      assign #pDEL w_clk[ ii+1 :ii]
+                          = f_inv( r_rst[ii], w_init, w_clk[ xx :yy], w_clk[ ii+1 :ii] );
    end
 
 ////////////////////////////////////////

@@ -19,10 +19,19 @@
   );
 
 ////////////////////////////////////////
+   wire       w_rst;
+   rst m_rst
+   (
+    .i_clk   ( i_clk ),
+    .i_rst_n ( ~ i_rst ),
+    .o_rst   ( w_rst )
+   );
+
+////////////////////////////////////////
    reg [15:0]   r_cnt;
 
    always @( posedge i_clk )
-     if( i_rst )
+     if( w_rst )
        r_cnt              <= 'd0;
      else
        r_cnt              <= r_cnt + 'd1;
@@ -32,7 +41,7 @@
    assign       o_oe       = r_oe;
 
    always @( posedge i_clk )
-     if( i_rst )
+     if( w_rst )
        r_oe               <= 'h00;
      else if( ( r_cnt >= 'd0 && r_cnt <= 'd5 ) )
        r_oe               <= 'h00;
@@ -44,7 +53,7 @@
    assign       o_sel      = r_sel;
 
    always @( posedge i_clk )
-     if( i_rst )
+     if( w_rst )
        r_sel              <= 'b000000;
      else if( pTEST || ~| r_oe )
        casex( i_sel )
@@ -62,7 +71,7 @@
    reg [2:0]    r_delay;
 
    always @( posedge i_clk )
-     if( i_rst ) begin
+     if( w_rst ) begin
         r_last            <= 'd0;
         r_sel_2           <= 'd0;
         r_delay           <= 'b000;

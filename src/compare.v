@@ -12,6 +12,15 @@
   );
 
 ////////////////////////////////////////
+   wire       w_rst;
+   rst m_rst
+   (
+    .i_clk   ( i_clk ),
+    .i_rst_n ( ~ i_rst ),
+    .o_rst   ( w_rst )
+   );
+
+////////////////////////////////////////
    reg [7:0]    r_out_1, r_out_2, r_out_3, r_out_4, r_ret;
 
    always @( posedge i_clk ) begin
@@ -27,7 +36,7 @@
    assign       o_diff     = r_diff;
 
    always @( posedge i_clk )
-     if( i_rst )
+     if( w_rst )
        r_diff             <= 'd0;
      else
        casex({ r_ret == r_out_1, r_ret == r_out_2, r_ret == r_out_3, r_ret == r_out_4 })
