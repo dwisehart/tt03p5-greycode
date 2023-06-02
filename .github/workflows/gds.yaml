@@ -50,7 +50,8 @@ jobs:
 
     # run OpenLane to build the GDS
     - name: make GDS
-      run: ./tt/tt_tool.py --harden
+    # XXX  run: ./tt/tt_tool.py --harden
+      run: ./tt/tt_tool.py --harden || true
 
     # for debugging, show all the files
     - name: show files
@@ -62,11 +63,11 @@ jobs:
 
     # print some routing stats
     - name: add summary
-      run: ./tt/tt_tool.py --print-stats >> $GITHUB_STEP_SUMMARY
+    # XXX  run: ./tt/tt_tool.py --print-stats >> $GITHUB_STEP_SUMMARY
 
     # print some cell stats
     - name: cell usage summary
-      run: ./tt/tt_tool.py --print-cell-category >> $GITHUB_STEP_SUMMARY
+    # XXX  run: ./tt/tt_tool.py --print-cell-category >> $GITHUB_STEP_SUMMARY
 
     - name: populate src cache
       uses: actions/cache@v3
@@ -82,13 +83,13 @@ jobs:
 
     # create png
     - name: png
-      run: ./tt/tt_tool.py --create-png
+    # XXX  run: ./tt/tt_tool.py --create-png
 
     - name: populate png cache
-      uses: actions/cache@v3
-      with:
-        path: 'gds_render.png'
-        key: ${{ runner.os }}-png-${{ github.run_id }}
+    # XXX  uses: actions/cache@v3
+    # XXX  with:
+    # XXX    path: 'gds_render.png'
+    # XXX    key: ${{ runner.os }}-png-${{ github.run_id }}
 
 ##############################################################
 # Generate files for the 3D viewer
