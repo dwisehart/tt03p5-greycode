@@ -23,9 +23,11 @@ documentation:
   description:  "Select one of six ring oscillators.  If none is selected the system clock is used.  The output will be divided by 10 (uo[0]) and 100 (uo[5]). uo[4:0] together is x1 decemal grey-code of the ring oscillator."
 
 
-  how_it_works: "To be added"
+  how_it_works: |
+	To be added
 
-  how_to_test:  "To be added"
+  how_to_test:  |
+	To be added
 
   inputs:
     - ui[7]

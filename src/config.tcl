@@ -50,8 +50,8 @@ set ::env(CLOCK_PORT) {clk}
 # set ::env(PL_TARGET_DENSITY) 0.35
 
 # hold/slack margin
-# set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.8
-# set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.8
+# set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.8 
+# set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.8 
 
 # don't use power rings or met5
 set ::env(DESIGN_IS_CORE) 0
