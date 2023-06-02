@@ -11,7 +11,7 @@ project:
     - top.v
   top_module:  "tt_um_greycode_top"
 
-  tiles: "2x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+  tiles: "4x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
 
   yaml_version: 3.5
 
