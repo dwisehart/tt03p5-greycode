@@ -24,10 +24,10 @@ documentation:
 
 
   how_it_works: |
-	To be added
+                To be added
 
   how_to_test:  |
-	To be added
+                To be added
 
   inputs:
     - ui[7]
