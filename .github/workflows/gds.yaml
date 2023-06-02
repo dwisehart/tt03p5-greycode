@@ -49,9 +49,9 @@ jobs:
         make
 
     # run OpenLane to build the GDS
+    # XXX  run: ./tt/tt_tool.py --harden
     - name: make GDS
       run: ./tt/tt_tool.py --harden || true
-    # XXX  run: ./tt/tt_tool.py --harden
 
     # for debugging, show all the files
     - name: show files
