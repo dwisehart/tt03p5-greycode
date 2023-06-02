@@ -92,7 +92,8 @@
 
 ////////////////////////////////////////
    reg          r_ring;
-   assign       o_ring     = r_ring;
+//   assign       o_ring     = r_ring;
+   assign       o_ring     = i_097;
 
    always @( * )
      casex( r_sel_2 )
