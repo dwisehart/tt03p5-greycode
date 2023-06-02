@@ -50,8 +50,7 @@ jobs:
 
     # run OpenLane to build the GDS
     - name: make GDS
-      run: ./tt/tt_tool.py --harden || true
-    # XXX  run: ./tt/tt_tool.py --harden
+      run: ./tt/tt_tool.py --harden
 
     # for debugging, show all the files
     - name: show files
