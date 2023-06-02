@@ -8,14 +8,7 @@
    input [7:0]  i_sel,
    output [7:0] o_oe,
 
-   output [5:0] o_sel,
-   input        i_005,
-   input        i_011,
-   input        i_023,
-   input        i_047,
-   input        i_097,
-   input        i_197,
-   output       o_ring
+   output [5:0] o_sel
   );
 
 ////////////////////////////////////////
@@ -89,21 +82,5 @@
             r_sel_2       <= r_sel;
          end
        endcase
-
-////////////////////////////////////////
-   reg          r_ring;
-//   assign       o_ring     = r_ring;
-   assign       o_ring     = i_097;
-
-   always @( * )
-     casex( r_sel_2 )
-       'b1xxxxx: r_ring   <= i_005;
-       'b01xxxx: r_ring   <= i_011;
-       'b001xxx: r_ring   <= i_023;
-       'b0001xx: r_ring   <= i_047;
-       'b00001x: r_ring   <= i_097;
-       'b000001: r_ring   <= i_197;
-       default:  r_ring   <= i_clk;
-     endcase
 
 endmodule

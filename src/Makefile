@@ -23,6 +23,7 @@ else
 			$(PWD)/grey.v       \
 			$(PWD)/ringd.v      \
 			$(PWD)/compare.v    \
+			$(PWD)/mux.v        \
 			$(PWD)/rst.v        \
 			$(PWD)/select.v
   MODULE           = test

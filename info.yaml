@@ -6,6 +6,7 @@ project:
     - grey.v
     - ringd.v
     - rst.v
+    - mux.v
     - select.v
     - compare.v
     - top.v
