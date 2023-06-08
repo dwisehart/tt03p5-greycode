@@ -51,7 +51,7 @@
         r_grey            <= f_init_grey( pINIT );
         r_rst_done        <= 'b1;
      end
-     else if( i_cnt ) begin
+     else begin
         r_grey            <= f_grey( r_grey );
         r_rst_done        <= 'b0;
      end
@@ -63,7 +63,7 @@
    always @( posedge i_cnt )
      if( r_rst )
        r_roll             <= 'b0;
-     else if( i_cnt )
+     else
        r_roll             <= r_grey == pNINE;
 
 ////////////////////////////////////////
